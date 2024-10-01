@@ -1,0 +1,61 @@
+/home/user/NgoQuang/truck_classification/modular/draw_graph.py:33: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path)
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.login() after wandb.init() has no effect.
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.login() after wandb.init() has no effect.
+lr: 0.001
+epoch=2, accuracy=0.3189663793030468, loss=0.46935173034575145
+epoch=3, accuracy=0.5352870076915716, loss=0.3038519054508526
+epoch=4, accuracy=0.7743791638651382, loss=0.332725550010821
+epoch=5, accuracy=0.745769121773061, loss=0.1970255715408378
+epoch=6, accuracy=0.9360715993131102, loss=0.12020559285239721
+epoch=7, accuracy=0.9124941459148181, loss=0.06401094356472267
+epoch=8, accuracy=0.8440265860331428, loss=0.04176158150779762
+epoch=9, accuracy=0.963014009079789, loss=0.05516093584437364
+epoch=10, accuracy=0.8852371653752255, loss=0.08394333205908136
+epoch=11, accuracy=0.9215702499211318, loss=0.09163772235740203
+epoch=12, accuracy=0.9431241122196753, loss=0.07944343911525403
+epoch=13, accuracy=0.9653619319324088, loss=0.04862178247122728
+epoch=14, accuracy=0.9191428149251154, loss=0.04555128058487472
+epoch=15, accuracy=0.9376127182318931, loss=0.042318852965556444
+epoch=16, accuracy=0.9503523587152557, loss=0.039371863061571276
+epoch=17, accuracy=0.9626377774811818, loss=0.04338478806721269
+epoch=18, accuracy=0.9599480705778309, loss=0.07100073379098899
+epoch=19, accuracy=0.9207604627557316, loss=0.04215548859095294
+lr: 0.001
+epoch=2, accuracy=0.5679035053642912, loss=0.6249743092790009
+epoch=3, accuracy=0.7605838183456212, loss=0.3626653143257869
+epoch=4, accuracy=0.7775198941143843, loss=0.25668318781690286
+epoch=5, accuracy=0.7623526058215317, loss=0.21168838699524978
+epoch=6, accuracy=0.7460419325822978, loss=0.22889212592765784
+epoch=7, accuracy=0.7754289237893415, loss=0.18635906889938386
+epoch=8, accuracy=0.881604680430126, loss=0.13807021381115253
+epoch=9, accuracy=0.8644734863155273, loss=0.13871419921047276
+epoch=10, accuracy=0.8792006582975298, loss=0.18613368720300133
+epoch=11, accuracy=0.8358836948139647, loss=0.18394828248783035
+epoch=12, accuracy=0.842510684151824, loss=0.1290167278127838
+epoch=13, accuracy=0.832152472931583, loss=0.1313219236618439
+epoch=14, accuracy=0.8842051140903263, loss=0.1466398347590041
+epoch=15, accuracy=0.902693498953564, loss=0.1591712217106605
+epoch=16, accuracy=0.8750939523490473, loss=0.10592448430927351
+epoch=17, accuracy=0.8499722277932705, loss=0.13617812007181762
+epoch=18, accuracy=0.8872265592467561, loss=0.1116615366920285
+epoch=19, accuracy=0.8943199574840264, loss=0.09636069715628928
+lr: 0.001
+epoch=2, accuracy=0.48831380737770924, loss=0.7355793954506541
+epoch=3, accuracy=0.7684991426539347, loss=0.5329151574977129
+epoch=4, accuracy=0.678103971957413, loss=0.22535348714687947
+epoch=5, accuracy=0.7866021536219816, loss=0.26173639483836564
+epoch=6, accuracy=0.8742590298010294, loss=0.26412826411311296
+epoch=7, accuracy=0.7714496106290877, loss=0.18283449801709495
+epoch=8, accuracy=0.7981260869643056, loss=0.14546062085918127
+epoch=9, accuracy=0.8916147983827293, loss=0.17782824375753992
+epoch=10, accuracy=0.8454480861338288, loss=0.10898673096907273
+epoch=11, accuracy=0.8224397538481293, loss=0.13188286750411057
+epoch=12, accuracy=0.9012327541138418, loss=0.13028654392858371
+epoch=13, accuracy=0.8757799334052686, loss=0.16724119744292126
+epoch=14, accuracy=0.8546144813639197, loss=0.16012950797584397
+epoch=15, accuracy=0.8530580512644861, loss=0.12415497992029514
+epoch=16, accuracy=0.8904524182646815, loss=0.10127398303478699
+epoch=17, accuracy=0.8895553009686633, loss=0.12770625718304368
+epoch=18, accuracy=0.9036661874577514, loss=0.15039894383231994
+epoch=19, accuracy=0.858412743768112, loss=0.09855821763944118

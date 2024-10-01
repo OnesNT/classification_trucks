@@ -1,0 +1,78 @@
+{
+    "os": "Linux-6.9.10-200.fc40.x86_64-x86_64-with-glibc2.39",
+    "python": "3.12.4",
+    "heartbeatAt": "2024-08-02T12:02:47.036253",
+    "startedAt": "2024-08-02T12:02:46.440946",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/user/NgoQuang/truck_classification/modular/draw_graph.py",
+    "codePathLocal": "draw_graph.py",
+    "codePath": "truck_classification/modular/draw_graph.py",
+    "git": {
+        "remote": "git@github.com:OnesNT/classification_trucks.git",
+        "commit": "19bdffe3016ce1e5673d240b3f8b026ab5282c74"
+    },
+    "email": "zhizhin.ik@phystech.edu",
+    "root": "/home/user/NgoQuang",
+    "host": "fedora",
+    "username": "user",
+    "executable": "/home/user/anaconda3/envs/ngokuang/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 6,
+    "cpu_freq": {
+        "current": 3.3994999999999997,
+        "min": 800.0,
+        "max": 4600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.601,
+            "min": 800.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3.595,
+            "min": 800.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3.519,
+            "min": 800.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3.603,
+            "min": 800.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3.62,
+            "min": 800.0,
+            "max": 4600.0
+        },
+        {
+            "current": 3.526,
+            "min": 800.0,
+            "max": 4600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 227.4401741027832,
+            "used": 21.927997589111328
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3080",
+            "memory_total": 10737418240
+        }
+    ],
+    "memory": {
+        "total": 62.70720672607422
+    }
+}

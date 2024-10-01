@@ -1,0 +1,48 @@
+
+  0%|                                                                                                                                                                                                                                                                                                                                    | 0/20 [01:58<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/user/NgoQuang/truck_classification/modular/draw_graph.py", line 25, in <module>
+    results = train_model()
+              ^^^^^^^^^^^^^
+  File "/home/user/NgoQuang/truck_classification/modular/train.py", line 82, in train_model
+    results = engine.train( model=model,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/NgoQuang/truck_classification/modular/engine.py", line 168, in train
+    test_loss, test_acc = test_step(model=model,
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/NgoQuang/truck_classification/modular/engine.py", line 96, in test_step
+    for batch, (X, y) in enumerate(dataloader):
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/utils/data/dataset.py", line 419, in __getitems__
+    return [self.dataset[self.indices[idx]] for idx in indices]
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/user/NgoQuang/truck_classification/modular/data_setup.py", line 30, in __getitem__
+    image = self.transform(image)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
+    img = t(img)
+          ^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/transforms/transforms.py", line 1812, in forward
+    return F.gaussian_blur(img, self.kernel_size, [sigma, sigma])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/transforms/functional.py", line 1371, in gaussian_blur
+    output = F_t.gaussian_blur(t_img, kernel_size, sigma)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/transforms/_functional_tensor.py", line 759, in gaussian_blur
+    img = conv2d(img, kernel, groups=img.shape[-3])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

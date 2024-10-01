@@ -1,0 +1,56 @@
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Current SDK version is 0.17.5
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Configure stats pid to 1261461
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/.config/wandb/settings
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/NgoQuang/truck_classification/modular/wandb/settings
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'truck_classification/modular/draw_graph.py', 'program_abspath': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py', 'program': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py'}
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:_log_setup():529] Logging user logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112640-y6wl6m7d/logs/debug.log
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:_log_setup():530] Logging internal logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112640-y6wl6m7d/logs/debug-internal.log
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:init():569] calling init triggers
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.001, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 20}
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:init():619] starting backend
+2024-08-07 11:26:40,407 INFO    MainThread:1261461 [wandb_init.py:init():623] setting up manager
+2024-08-07 11:26:40,408 INFO    MainThread:1261461 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-08-07 11:26:40,409 INFO    MainThread:1261461 [wandb_init.py:init():631] backend started and connected
+2024-08-07 11:26:40,410 INFO    MainThread:1261461 [wandb_init.py:init():720] updated telemetry
+2024-08-07 11:26:40,413 INFO    MainThread:1261461 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-08-07 11:26:40,853 INFO    MainThread:1261461 [wandb_run.py:_on_init():2435] communicating current version
+2024-08-07 11:26:41,021 INFO    MainThread:1261461 [wandb_run.py:_on_init():2444] got version response 
+2024-08-07 11:26:41,021 INFO    MainThread:1261461 [wandb_init.py:init():804] starting run threads in backend
+2024-08-07 11:26:48,080 INFO    MainThread:1261461 [wandb_run.py:_console_start():2413] atexit reg
+2024-08-07 11:26:48,080 INFO    MainThread:1261461 [wandb_run.py:_redirect():2255] redirect: wrap_raw
+2024-08-07 11:26:48,080 INFO    MainThread:1261461 [wandb_run.py:_redirect():2320] Wrapping output streams.
+2024-08-07 11:26:48,080 INFO    MainThread:1261461 [wandb_run.py:_redirect():2345] Redirects installed.
+2024-08-07 11:26:48,081 INFO    MainThread:1261461 [wandb_init.py:init():847] run started, returning control to user process
+2024-08-07 11:26:49,053 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Current SDK version is 0.17.5
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Configure stats pid to 1261461
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/.config/wandb/settings
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/NgoQuang/truck_classification/modular/wandb/settings
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'truck_classification/modular/draw_graph.py', 'program_abspath': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py', 'program': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py'}
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_init.py:_log_setup():529] Logging user logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112649-zz911ii7/logs/debug.log
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_init.py:_log_setup():530] Logging internal logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112649-zz911ii7/logs/debug-internal.log
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_init.py:init():569] calling init triggers
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.001, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 20}
+2024-08-07 11:26:49,054 INFO    MainThread:1261461 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-08-07 11:26:49,712 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Current SDK version is 0.17.5
+2024-08-07 11:26:49,712 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Configure stats pid to 1261461
+2024-08-07 11:26:49,712 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/.config/wandb/settings
+2024-08-07 11:26:49,712 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from /home/user/NgoQuang/truck_classification/modular/wandb/settings
+2024-08-07 11:26:49,712 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-08-07 11:26:49,713 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'truck_classification/modular/draw_graph.py', 'program_abspath': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py', 'program': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py'}
+2024-08-07 11:26:49,713 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:49,713 INFO    MainThread:1261461 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-07 11:26:49,714 INFO    MainThread:1261461 [wandb_init.py:_log_setup():529] Logging user logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112649-fyzkjlke/logs/debug.log
+2024-08-07 11:26:49,714 INFO    MainThread:1261461 [wandb_init.py:_log_setup():530] Logging internal logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240807_112649-fyzkjlke/logs/debug-internal.log
+2024-08-07 11:26:49,714 INFO    MainThread:1261461 [wandb_init.py:init():569] calling init triggers
+2024-08-07 11:26:49,714 INFO    MainThread:1261461 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.001, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 20}
+2024-08-07 11:26:49,714 INFO    MainThread:1261461 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-08-07 11:26:59,140 WARNING MsgRouterThr:1261461 [router.py:message_loop():77] message_loop has been closed

@@ -1,0 +1,189 @@
+2024-08-06 11:22:42,076 INFO    StreamThr :566699 [internal.py:wandb_internal():85] W&B internal server running at pid: 566699, started at: 2024-08-06 11:22:42.076076
+2024-08-06 11:22:42,080 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: status
+2024-08-06 11:22:42,082 INFO    WriterThread:566699 [datastore.py:open_for_write():87] open: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/run-vjwwl22z.wandb
+2024-08-06 11:22:42,083 DEBUG   SenderThread:566699 [sender.py:send():379] send: header
+2024-08-06 11:22:42,087 DEBUG   SenderThread:566699 [sender.py:send():379] send: run
+2024-08-06 11:22:42,550 INFO    SenderThread:566699 [dir_watcher.py:__init__():211] watching files in: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files
+2024-08-06 11:22:42,550 INFO    SenderThread:566699 [sender.py:_start_run_threads():1188] run started: vjwwl22z with start time 1722932562.076054
+2024-08-06 11:22:42,560 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: check_version
+2024-08-06 11:22:42,561 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: check_version
+2024-08-06 11:22:42,763 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: run_start
+2024-08-06 11:22:42,789 DEBUG   HandlerThread:566699 [system_info.py:__init__():26] System info init
+2024-08-06 11:22:42,789 DEBUG   HandlerThread:566699 [system_info.py:__init__():41] System info init done
+2024-08-06 11:22:42,789 INFO    HandlerThread:566699 [system_monitor.py:start():194] Starting system monitor
+2024-08-06 11:22:42,790 INFO    SystemMonitor:566699 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-08-06 11:22:42,790 INFO    HandlerThread:566699 [system_monitor.py:probe():214] Collecting system info
+2024-08-06 11:22:42,791 INFO    SystemMonitor:566699 [interfaces.py:start():188] Started cpu monitoring
+2024-08-06 11:22:42,792 INFO    SystemMonitor:566699 [interfaces.py:start():188] Started disk monitoring
+2024-08-06 11:22:42,793 INFO    SystemMonitor:566699 [interfaces.py:start():188] Started gpu monitoring
+2024-08-06 11:22:42,794 INFO    SystemMonitor:566699 [interfaces.py:start():188] Started memory monitoring
+2024-08-06 11:22:42,795 INFO    SystemMonitor:566699 [interfaces.py:start():188] Started network monitoring
+2024-08-06 11:22:42,807 DEBUG   HandlerThread:566699 [system_info.py:probe():152] Probing system
+2024-08-06 11:22:42,809 DEBUG   HandlerThread:566699 [system_info.py:_probe_git():137] Probing git
+2024-08-06 11:22:42,815 DEBUG   HandlerThread:566699 [system_info.py:_probe_git():145] Probing git done
+2024-08-06 11:22:42,816 DEBUG   HandlerThread:566699 [system_info.py:probe():200] Probing system done
+2024-08-06 11:22:42,816 DEBUG   HandlerThread:566699 [system_monitor.py:probe():223] {'os': 'Linux-6.9.10-200.fc40.x86_64-x86_64-with-glibc2.39', 'python': '3.12.4', 'heartbeatAt': '2024-08-06T08:22:42.807207', 'startedAt': '2024-08-06T08:22:42.069002', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py', 'codePathLocal': 'draw_graph.py', 'codePath': 'truck_classification/modular/draw_graph.py', 'git': {'remote': 'git@github.com:OnesNT/classification_trucks.git', 'commit': '19bdffe3016ce1e5673d240b3f8b026ab5282c74'}, 'email': 'zhizhin.ik@phystech.edu', 'root': '/home/user/NgoQuang', 'host': 'fedora', 'username': 'user', 'executable': '/home/user/anaconda3/envs/ngokuang/bin/python', 'cpu_count': 6, 'cpu_count_logical': 6, 'cpu_freq': {'current': 1.9993333333333336, 'min': 800.0, 'max': 4600.0}, 'cpu_freq_per_core': [{'current': 1.999, 'min': 800.0, 'max': 4600.0}, {'current': 1.999, 'min': 800.0, 'max': 4600.0}, {'current': 2.001, 'min': 800.0, 'max': 4600.0}, {'current': 1.999, 'min': 800.0, 'max': 4600.0}, {'current': 1.999, 'min': 800.0, 'max': 4600.0}, {'current': 1.999, 'min': 800.0, 'max': 4600.0}], 'disk': {'/': {'total': 227.4401741027832, 'used': 21.903488159179688}}, 'gpu': 'NVIDIA GeForce RTX 3080', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3080', 'memory_total': 10737418240}], 'memory': {'total': 62.70720672607422}}
+2024-08-06 11:22:42,816 INFO    HandlerThread:566699 [system_monitor.py:probe():224] Finished collecting system info
+2024-08-06 11:22:42,816 INFO    HandlerThread:566699 [system_monitor.py:probe():227] Publishing system info
+2024-08-06 11:22:42,816 DEBUG   HandlerThread:566699 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2024-08-06 11:22:43,550 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_created():271] file/dir created: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/conda-environment.yaml
+2024-08-06 11:22:46,488 DEBUG   HandlerThread:566699 [system_info.py:_save_conda():224] Saving conda packages done
+2024-08-06 11:22:46,488 INFO    HandlerThread:566699 [system_monitor.py:probe():229] Finished publishing system info
+2024-08-06 11:22:46,489 DEBUG   SenderThread:566699 [sender.py:send():379] send: files
+2024-08-06 11:22:46,489 INFO    SenderThread:566699 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2024-08-06 11:22:46,551 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/conda-environment.yaml
+2024-08-06 11:22:46,551 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_created():271] file/dir created: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/wandb-metadata.json
+2024-08-06 11:22:46,591 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: python_packages
+2024-08-06 11:22:46,592 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: python_packages
+2024-08-06 11:22:46,592 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: internal_messages
+2024-08-06 11:22:46,592 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: stop_status
+2024-08-06 11:22:46,593 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: stop_status
+2024-08-06 11:22:46,812 DEBUG   SenderThread:566699 [sender.py:send():379] send: telemetry
+2024-08-06 11:22:46,821 DEBUG   SenderThread:566699 [sender.py:send():379] send: exit
+2024-08-06 11:22:46,821 INFO    SenderThread:566699 [sender.py:send_exit():586] handling exit code: 255
+2024-08-06 11:22:46,822 INFO    SenderThread:566699 [sender.py:send_exit():588] handling runtime: 3
+2024-08-06 11:22:46,825 INFO    SenderThread:566699 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-08-06 11:22:46,825 INFO    SenderThread:566699 [sender.py:send_exit():594] send defer
+2024-08-06 11:22:46,826 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,826 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 0
+2024-08-06 11:22:46,827 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,827 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-08-06 11:22:46,827 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 1
+2024-08-06 11:22:46,827 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,828 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 1
+2024-08-06 11:22:46,828 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,829 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-08-06 11:22:46,829 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 2
+2024-08-06 11:22:46,829 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,829 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 2
+2024-08-06 11:22:46,830 INFO    HandlerThread:566699 [system_monitor.py:finish():203] Stopping system monitor
+2024-08-06 11:22:46,830 DEBUG   SystemMonitor:566699 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-08-06 11:22:46,830 DEBUG   SystemMonitor:566699 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-08-06 11:22:46,830 DEBUG   SystemMonitor:566699 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-08-06 11:22:46,831 INFO    HandlerThread:566699 [interfaces.py:finish():200] Joined cpu monitor
+2024-08-06 11:22:46,832 INFO    HandlerThread:566699 [interfaces.py:finish():200] Joined disk monitor
+2024-08-06 11:22:46,937 INFO    HandlerThread:566699 [interfaces.py:finish():200] Joined gpu monitor
+2024-08-06 11:22:46,937 INFO    HandlerThread:566699 [interfaces.py:finish():200] Joined memory monitor
+2024-08-06 11:22:46,937 INFO    HandlerThread:566699 [interfaces.py:finish():200] Joined network monitor
+2024-08-06 11:22:46,938 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 3
+2024-08-06 11:22:46,938 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,938 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 3
+2024-08-06 11:22:46,938 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 4
+2024-08-06 11:22:46,938 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,938 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 4
+2024-08-06 11:22:46,938 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-08-06 11:22:46,938 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 5
+2024-08-06 11:22:46,938 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,938 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 5
+2024-08-06 11:22:46,938 DEBUG   SenderThread:566699 [sender.py:send():379] send: summary
+2024-08-06 11:22:46,939 INFO    SenderThread:566699 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-08-06 11:22:46,939 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,939 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-08-06 11:22:46,939 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 6
+2024-08-06 11:22:46,939 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:46,939 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 6
+2024-08-06 11:22:46,939 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:46,939 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-08-06 11:22:46,941 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: status_report
+2024-08-06 11:22:47,147 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 7
+2024-08-06 11:22:47,148 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:47,148 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 7
+2024-08-06 11:22:47,149 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:47,149 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-08-06 11:22:47,401 INFO    wandb-upload_0:566699 [upload_job.py:push():130] Uploaded file /tmp/tmpwx1geycuwandb/5e3r8i89-wandb-metadata.json
+2024-08-06 11:22:47,552 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/config.yaml
+2024-08-06 11:22:47,553 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_created():271] file/dir created: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/wandb-summary.json
+2024-08-06 11:22:47,553 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_created():271] file/dir created: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/output.log
+2024-08-06 11:22:47,553 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_created():271] file/dir created: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/requirements.txt
+2024-08-06 11:22:47,640 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:48,833 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 8
+2024-08-06 11:22:48,833 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:48,834 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:48,835 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 8
+2024-08-06 11:22:48,835 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:48,835 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-08-06 11:22:48,836 INFO    SenderThread:566699 [job_builder.py:build():440] Attempting to build job artifact
+2024-08-06 11:22:48,836 INFO    SenderThread:566699 [job_builder.py:_get_source_type():569] is repo sourced job
+2024-08-06 11:22:48,881 INFO    SenderThread:566699 [job_builder.py:build():545] adding wandb-job metadata file
+2024-08-06 11:22:48,882 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 9
+2024-08-06 11:22:48,883 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:48,883 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 9
+2024-08-06 11:22:48,883 DEBUG   SenderThread:566699 [sender.py:send():379] send: artifact
+2024-08-06 11:22:49,553 INFO    Thread-12 :566699 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/output.log
+2024-08-06 11:22:49,640 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:49,793 INFO    SenderThread:566699 [sender.py:send_artifact():1537] sent artifact job-git_github.com_OnesNT_classification_trucks.git_truck_classification_modular_draw_graph.py - {'id': 'QXJ0aWZhY3Q6MTEwMzI5NjIxNg==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjM1ODc4NDkwOA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTEwMzI5NjIxNg==', 'versionIndex': 2}}}
+2024-08-06 11:22:49,793 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:49,793 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-08-06 11:22:49,793 INFO    SenderThread:566699 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-08-06 11:22:50,554 INFO    SenderThread:566699 [dir_watcher.py:finish():388] scan: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files
+2024-08-06 11:22:50,555 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/requirements.txt requirements.txt
+2024-08-06 11:22:50,556 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/wandb-summary.json wandb-summary.json
+2024-08-06 11:22:50,556 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/output.log output.log
+2024-08-06 11:22:50,561 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/config.yaml config.yaml
+2024-08-06 11:22:50,571 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/conda-environment.yaml conda-environment.yaml
+2024-08-06 11:22:50,576 INFO    SenderThread:566699 [dir_watcher.py:finish():402] scan save: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/wandb-metadata.json wandb-metadata.json
+2024-08-06 11:22:50,577 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 10
+2024-08-06 11:22:50,577 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:50,582 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:50,582 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 10
+2024-08-06 11:22:50,583 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:50,584 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-08-06 11:22:50,584 INFO    SenderThread:566699 [file_pusher.py:finish():169] shutting down file pusher
+2024-08-06 11:22:50,641 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:50,642 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:51,016 INFO    wandb-upload_0:566699 [upload_job.py:push():130] Uploaded file /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/requirements.txt
+2024-08-06 11:22:51,056 INFO    wandb-upload_1:566699 [upload_job.py:push():130] Uploaded file /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/wandb-summary.json
+2024-08-06 11:22:51,085 INFO    wandb-upload_4:566699 [upload_job.py:push():130] Uploaded file /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/conda-environment.yaml
+2024-08-06 11:22:51,099 INFO    wandb-upload_3:566699 [upload_job.py:push():130] Uploaded file /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/config.yaml
+2024-08-06 11:22:51,112 INFO    wandb-upload_2:566699 [upload_job.py:push():130] Uploaded file /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/files/output.log
+2024-08-06 11:22:51,313 INFO    Thread-11 (_thread_body):566699 [sender.py:transition_state():614] send defer: 11
+2024-08-06 11:22:51,313 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:51,313 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 11
+2024-08-06 11:22:51,314 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:51,315 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-08-06 11:22:51,315 INFO    SenderThread:566699 [file_pusher.py:join():175] waiting for file pusher
+2024-08-06 11:22:51,316 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 12
+2024-08-06 11:22:51,316 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:51,316 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 12
+2024-08-06 11:22:51,317 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:51,317 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-08-06 11:22:51,317 INFO    SenderThread:566699 [file_stream.py:finish():601] file stream finish called
+2024-08-06 11:22:51,643 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:52,404 INFO    SenderThread:566699 [file_stream.py:finish():605] file stream finish is done
+2024-08-06 11:22:52,404 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 13
+2024-08-06 11:22:52,404 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:52,404 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:52,404 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 13
+2024-08-06 11:22:52,404 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: status_report
+2024-08-06 11:22:52,405 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:52,405 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-08-06 11:22:52,405 INFO    SenderThread:566699 [sender.py:transition_state():614] send defer: 14
+2024-08-06 11:22:52,405 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: defer
+2024-08-06 11:22:52,405 INFO    HandlerThread:566699 [handler.py:handle_request_defer():184] handle defer: 14
+2024-08-06 11:22:52,405 DEBUG   SenderThread:566699 [sender.py:send():379] send: final
+2024-08-06 11:22:52,405 DEBUG   SenderThread:566699 [sender.py:send():379] send: footer
+2024-08-06 11:22:52,405 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: defer
+2024-08-06 11:22:52,405 INFO    SenderThread:566699 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-08-06 11:22:52,406 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:52,406 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: server_info
+2024-08-06 11:22:52,406 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: poll_exit
+2024-08-06 11:22:52,406 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:52,407 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: server_info
+2024-08-06 11:22:52,408 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: get_summary
+2024-08-06 11:22:52,408 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: sampled_history
+2024-08-06 11:22:52,408 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: internal_messages
+2024-08-06 11:22:52,565 DEBUG   SenderThread:566699 [sender.py:send_request():406] send_request: poll_exit
+2024-08-06 11:22:52,566 INFO    MainThread:566699 [wandb_run.py:_footer_history_summary_info():4016] rendering history
+2024-08-06 11:22:52,566 INFO    MainThread:566699 [wandb_run.py:_footer_history_summary_info():4048] rendering summary
+2024-08-06 11:22:52,566 INFO    MainThread:566699 [wandb_run.py:_footer_sync_info():3975] logging synced files
+2024-08-06 11:22:52,566 DEBUG   HandlerThread:566699 [handler.py:handle_request():158] handle_request: shutdown
+2024-08-06 11:22:52,566 INFO    HandlerThread:566699 [handler.py:finish():882] shutting down handler
+2024-08-06 11:22:53,406 INFO    WriterThread:566699 [datastore.py:close():296] close: /home/user/NgoQuang/truck_classification/modular/wandb/run-20240806_112242-vjwwl22z/run-vjwwl22z.wandb
+2024-08-06 11:22:53,566 INFO    SenderThread:566699 [sender.py:finish():1615] shutting down sender
+2024-08-06 11:22:53,566 INFO    SenderThread:566699 [file_pusher.py:finish():169] shutting down file pusher
+2024-08-06 11:22:53,566 INFO    SenderThread:566699 [file_pusher.py:join():175] waiting for file pusher

@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/home/user/NgoQuang/truck_classification/modular/draw_graph.py", line 46, in <module>
+    load_and_draw(model_path1)
+  File "/home/user/NgoQuang/truck_classification/modular/draw_graph.py", line 18, in load_and_draw
+    model, optimizer, loss_fn = create_model()
+                                ^^^^^^^^^^^^^^
+  File "/home/user/NgoQuang/truck_classification/modular/train.py", line 70, in create_model
+    base_model = torchvision.models.efficientnet_b0(weights=weights).to(device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/models/_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/models/_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 770, in efficientnet_b0
+    return _efficientnet(
+           ^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 357, in _efficientnet
+    model = EfficientNet(inverted_residual_setting, dropout, last_channel=last_channel, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 321, in __init__
+    nn.init.kaiming_normal_(m.weight, mode="fan_out")
+  File "/home/user/anaconda3/envs/ngokuang/lib/python3.12/site-packages/torch/nn/init.py", line 505, in kaiming_normal_
+    return tensor.normal_(0, std, generator=generator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

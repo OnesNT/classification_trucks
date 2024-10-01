@@ -1,0 +1,29 @@
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Current SDK version is 0.17.5
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Configure stats pid to 2028877
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Loading settings from /home/user/.config/wandb/settings
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Loading settings from /home/user/NgoQuang/truck_classification/modular/wandb/settings
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'truck_classification/modular/draw_graph.py', 'program_abspath': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py', 'program': '/home/user/NgoQuang/truck_classification/modular/draw_graph.py'}
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:_log_setup():529] Logging user logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240808_123708-rynkntei/logs/debug.log
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:_log_setup():530] Logging internal logs to /home/user/NgoQuang/truck_classification/modular/wandb/run-20240808_123708-rynkntei/logs/debug-internal.log
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:init():569] calling init triggers
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.001, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 20}
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:init():619] starting backend
+2024-08-08 12:37:08,143 INFO    MainThread:2028877 [wandb_init.py:init():623] setting up manager
+2024-08-08 12:37:08,144 INFO    MainThread:2028877 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-08-08 12:37:08,144 INFO    MainThread:2028877 [wandb_init.py:init():631] backend started and connected
+2024-08-08 12:37:08,146 INFO    MainThread:2028877 [wandb_init.py:init():720] updated telemetry
+2024-08-08 12:37:08,149 INFO    MainThread:2028877 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-08-08 12:37:08,619 INFO    MainThread:2028877 [wandb_run.py:_on_init():2435] communicating current version
+2024-08-08 12:37:08,719 INFO    MainThread:2028877 [wandb_run.py:_on_init():2444] got version response upgrade_message: "wandb version 0.17.6 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-08-08 12:37:08,719 INFO    MainThread:2028877 [wandb_init.py:init():804] starting run threads in backend
+2024-08-08 12:37:16,167 INFO    MainThread:2028877 [wandb_run.py:_console_start():2413] atexit reg
+2024-08-08 12:37:16,168 INFO    MainThread:2028877 [wandb_run.py:_redirect():2255] redirect: wrap_raw
+2024-08-08 12:37:16,168 INFO    MainThread:2028877 [wandb_run.py:_redirect():2320] Wrapping output streams.
+2024-08-08 12:37:16,168 INFO    MainThread:2028877 [wandb_run.py:_redirect():2345] Redirects installed.
+2024-08-08 12:37:16,240 INFO    MainThread:2028877 [wandb_init.py:init():847] run started, returning control to user process
+2024-08-08 12:37:23,765 WARNING MsgRouterThr:2028877 [router.py:message_loop():77] message_loop has been closed

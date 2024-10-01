@@ -1,0 +1,22 @@
+/home/user/NgoQuang/truck_classification/modular/draw_graph.py:34: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path)
+epoch=1, accuracy=0.9808884297520661, loss=0.06338710729840927
+epoch=2, accuracy=0.9860537190082644, loss=0.046168047744633574
+epoch=3, accuracy=0.9832128099173554, loss=0.05514583145489547
+epoch=4, accuracy=0.9852789256198347, loss=0.04762824833939575
+epoch=5, accuracy=0.9852789256198347, loss=0.044361698123711074
+epoch=6, accuracy=0.9803719008264463, loss=0.05500928162571143
+epoch=7, accuracy=0.9894111570247934, loss=0.038319364421970155
+epoch=8, accuracy=0.9870867768595041, loss=0.037232348367317834
+epoch=9, accuracy=0.9805291052820697, loss=0.05222457789715903
+epoch=10, accuracy=0.9855371900826446, loss=0.048066548440770886
+epoch=11, accuracy=0.9857954545454546, loss=0.0479659761082331
+epoch=12, accuracy=0.9801136363636364, loss=0.05212593048114391
+epoch=13, accuracy=0.9816632231404959, loss=0.053155307151465714
+epoch=14, accuracy=0.9860537190082644, loss=0.04465454001455486
+epoch=15, accuracy=0.9823369565217391, loss=0.049801678251482795
+epoch=16, accuracy=0.9865702479338843, loss=0.03721580873551386
+epoch=17, accuracy=0.9829545454545454, loss=0.05070423521077422
+epoch=18, accuracy=0.9868285123966942, loss=0.03543783125009634
+epoch=19, accuracy=0.9886363636363636, loss=0.04090842203966396
+epoch=20, accuracy=0.987345041322314, loss=0.034888065664226586
