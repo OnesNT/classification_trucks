@@ -291,7 +291,7 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
             return None
         model.to(device)
 
-        train_dataloader, test_dataloader = data_set_up(transform)
+        train_dataloader, test_dataloader, validation_dataloader = data_set_up(transform)
 
         # Set the freeze ratio
         print(f"With ratio: {ratio}")
@@ -303,6 +303,7 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
                                 test_dataloader=test_dataloader,
                                 loss_fn=loss_fn,
                                 optimizer=optimizer,
+                                validation_dataloader=validation_dataloader,
                                 epochs=setup_hyperparameters.NUM_EPOCHS,
                                 device=device,
                                 schedule_lr=schedule_lr,
