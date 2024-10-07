@@ -120,6 +120,7 @@ def test_step(model: torch.nn.Module,
 def train(model: torch.nn.Module,
           train_dataloader: torch.utils.data.DataLoader,
           test_dataloader: torch.utils.data.DataLoader,
+          validation_dataloader: torch.utils.data.Dataloader,
           optimizer: torch.optim.Optimizer,
           loss_fn: torch.nn.Module,
           epochs: int,
@@ -162,6 +163,8 @@ def train(model: torch.nn.Module,
       "train_acc": [],
       "test_loss": [],
       "test_acc": [],
+      "val_loss": [],
+      "val_acc": [],
       "lrs": []
 
   }
@@ -174,10 +177,16 @@ def train(model: torch.nn.Module,
                                           loss_fn=loss_fn,
                                           optimizer=optimizer,
                                           device=device,)
-      test_loss, test_acc = test_step(model=model,
-          dataloader=test_dataloader,
-          loss_fn=loss_fn,
-          device=device)
+      if epoch == epochs - 1:
+        test_loss, test_acc = test_step(model=model,
+            dataloader=test_dataloader,
+            loss_fn=loss_fn,
+            device=device)
+      
+      val_loss, val_acc = test_step(model=model,
+                                      dataloader=validation_dataloader,
+                                      loss_fn=loss_fn,
+                                      device=device)
       if schedule_lr:
           before_lr = optimizer.param_groups[0]["lr"]
           scheduler.step()
@@ -193,7 +202,9 @@ def train(model: torch.nn.Module,
           f"train_loss: {train_loss:.4f} | "
           f"train_acc: {train_acc:.4f} | "
           f"test_loss: {test_loss:.4f} | "
-          f"test_acc: {test_acc:.4f}"
+          f"test_acc: {test_acc:.4f} |"
+          f"val_loss: {val_loss:.4f} | "
+          f"val_acc: {val_acc:.4f}"
           f"Epoch %d: SGD lr %.7f -> %.7f: {lrs}"
       )
 

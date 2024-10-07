@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import argparse
 import os
 
@@ -222,10 +223,17 @@ def draw_commands(args):
         print(f"Drawing graph with model from: {args.draw_graph}")
         draw_graph.load_and_draw(args.draw_graph, model_base, choice_model, schedule_lr)
     return 0
+=======
+from commands import parser_commands
+from commands.utils_commands import utils_commands
+from commands.train_commands import train_commands 
+from commands.draw_commands import draw_commands
+>>>>>>> test_dev
 
 
 def main():
 
+<<<<<<< HEAD
     # Set up the argument parser
     parser = argparse.ArgumentParser(description="Truck classification bash command")
 
@@ -343,6 +351,9 @@ def main():
     # Add argument for efficient net version choice
     parser.add_argument('--version-model', type=int, choices=[0, 1, 2, 3],
                         help='Choose the transform to apply: 0 for efficientNetB0, 1 for efficientNetB1, 2 for efficientNetB2')
+=======
+    parser = parser_commands.parsers()
+>>>>>>> test_dev
 
     # Parse the arguments
     args = parser.parse_args()
@@ -359,5 +370,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    # print(torchvision.models.list_models())

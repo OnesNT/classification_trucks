@@ -20,6 +20,7 @@ import shutil
 import torch.optim as optim
 import torch.optim.lr_scheduler as lr_scheduler
 from PIL import Image
+<<<<<<< HEAD
 
 
 # Setup hyperparameters
@@ -64,32 +65,15 @@ transform3 = transforms.Compose([
 
 # Add RandAugment with N, M(hyperparameter)
 transform3.transforms.insert(0, RandAugment(4, 9))
+=======
+from config import base_model, setup_hyperparameters, transforms
+>>>>>>> test_dev
 
 # Check device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Freezing layers with ratios
 freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
-# freeze_ratios = [0]
-
-# Define EfficientNet with different base model
-weight_v2_EfficientNet_S = torchvision.models.EfficientNet_V2_S_Weights.DEFAULT
-base_v2_modelEfficientNet_S = torchvision.models.efficientnet_v2_s(weights=weight_v2_EfficientNet_S).to(device)
-
-weights2 = torchvision.models.EfficientNet_B2_Weights.DEFAULT
-base_model2 = torchvision.models.efficientnet_b2(weights=weights2).to(device)
-
-weights1 = torchvision.models.EfficientNet_B1_Weights.DEFAULT
-base_model1 = torchvision.models.efficientnet_b1(weights=weights1).to(device)
-
-weights0 = torchvision.models.EfficientNet_B0_Weights.DEFAULT
-base_model0 = torchvision.models.efficientnet_b0(weights=weights0).to(device)
-
-weightResNet34 = torchvision.models.ResNet34_Weights.DEFAULT
-base_modelResNet34 = torchvision.models.resnet34(weights=weightResNet34).to(device)
-
-weightConvNeXt = torchvision.models.ConvNeXt_Small_Weights.DEFAULT
-base_modelWeightConvNeXt = torchvision.models.convnext_small(weights=weightConvNeXt).to(device)
 
 
 # create model, optimizer, loss function for model
@@ -124,7 +108,7 @@ def create_model(model_choice, base_model, schedule_lr):
     #                              lr=LEARNING_RATE)
     # optimizer = torch.optim.SGD(model.parameters(), lr=LEARNING_RATE, momentum=0.9)
     # scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.1)
-    optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE)
+    optimizer = optim.SGD(model.parameters(), lr=setup_hyperparameters.LEARNING_RATE)
     scheduler = lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.5, total_iters=30)
 
     if schedule_lr:
@@ -293,7 +277,7 @@ def inference_for_truck_1(img_dir, out_dir, model_path, base_model, model_choice
     model.to(device)
 
     # Define image transformation
-    transform = simple_transform
+    transform = transforms.simple_transform
 
     for count, img_file in enumerate(os.listdir(img_dir)):
         # Get image from img_dir
@@ -328,14 +312,17 @@ def data_set_up(transform):
     root_dir = '/home/user/Quang/classification_truck_datasets'
     train_dir = os.path.join(root_dir, 'train')
     test_dir = os.path.join(root_dir, 'test')
+    validation_dir = os.path.join(root_dir, 'validation')
 
     train_dataset = TruckDataset(root_dir=train_dir, transform=transform)
-    test_dataset = TruckDataset(root_dir=test_dir, transform=simple_transform)
+    test_dataset = TruckDataset(root_dir=test_dir, transform=transforms.simple_transform)
+    validation_dataset = TruckDataset(root_dir=validation_dir, transform=transforms.simple_transform)
 
-    train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=8)
-    test_dataloader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=8)
+    train_dataloader = DataLoader(train_dataset, batch_size=setup_hyperparameters.BATCH_SIZE, shuffle=True, num_workers=8)
+    test_dataloader = DataLoader(test_dataset, batch_size=setup_hyperparameters.BATCH_SIZE, shuffle=False, num_workers=8)
+    validation_dataloader = DataLoader(validation_dataset, batch_size=setup_hyperparameters.BATCH_SIZE, shuffle=False, num_workers=8)
 
-    return train_dataloader, test_dataloader
+    return train_dataloader, test_dataloader, validation_dataloader
 
 
 # Train model from base model and how we use argumentation technique
@@ -351,7 +338,7 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
             return None
         model.to(device)
 
-        train_dataloader, test_dataloader = data_set_up(transform)
+        train_dataloader, test_dataloader, validation_dataloader = data_set_up(transform)
 
         # Set the freeze ratio
         print(f"With ratio: {ratio}")
@@ -363,7 +350,8 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
                                 test_dataloader=test_dataloader,
                                 loss_fn=loss_fn,
                                 optimizer=optimizer,
-                                epochs=NUM_EPOCHS,
+                                validation_dataloader=validation_dataloader,
+                                epochs=setup_hyperparameters.NUM_EPOCHS,
                                 device=device,
                                 schedule_lr=schedule_lr,
                                 scheduler=scheduler
@@ -401,10 +389,6 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
                      model_choice=model_choice,
                      lrs=results_best["lrs"][0],
                      version_model=version_model)
-
-    #
-    # accuracy, precision, recall, f1, class_report = evaluate.evaluate_model(model_best, test_dataloader, 2)
-    # print(f'Accuracy: {accuracy:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}, F1 Score: {f1:.4f}')
 
     return results_best
 
