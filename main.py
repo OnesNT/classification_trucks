@@ -172,6 +172,11 @@ def utils_commands(args):
     if args.clean_memory:
         utils.clean_memory()
 
+    if args.transformed_check:
+        dir_folder = args.transformed_check
+        transform = transform_type_choice(args)
+        utils.check_transformed_image(dir_folder, transform)
+
     return 0
 
 
@@ -232,6 +237,10 @@ def main():
                         type=str,
                         help='delete model by numbers')
     parser.add_argument('--destination',
+                        metavar='DIR',
+                        type=str,
+                        help='destination of moving file')
+    parser.add_argument('--transformed-check',
                         metavar='DIR',
                         type=str,
                         help='destination of moving file')

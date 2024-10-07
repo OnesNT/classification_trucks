@@ -10,6 +10,7 @@ import random
 import torch
 from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
 from modular.train import data_set_up, classifier, create_model
+from PIL import Image
 # import gc
 # from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 
@@ -94,7 +95,7 @@ def load_model(model_path, model_choice, base_model, schedule_lr):
     print(f'loss_train: {loss_train}, accuracy_train: {accuracy_train}')
     print(f'loss_test: {loss_test}, accuracy_test: {accuracy_test}')
     print(f'lrs: {lrs}')
-    print(f'transform: {transform}')
+    print(f'transform: {str(transform)}')
 
     return {'model_choice': model_choice,
             "best_ratio": best_ratio,
@@ -150,6 +151,48 @@ def evaluate_model(model: torch.nn.Module,
     accuracy = num_correct / total_samples
 
     return accuracy
+
+
+def check_transformed_image(img_folder, transform):
+    # Create output directory if it doesn't exist
+    save_dir = "/home/user/Quang/datasets/transformed_image"
+    name_folder = img_folder.split('/')[-1]
+    save_path_folder = os.path.join(save_dir, name_folder)
+
+    os.makedirs(save_path_folder, exist_ok=True)
+
+    # Remove existing folder if it exists
+    if name_folder in os.listdir(save_dir):
+        shutil.rmtree(save_path_folder)
+        os.makedirs(save_path_folder, exist_ok=True)
+
+    # Process each image in the folder
+    for img in os.listdir(img_folder):
+        img_path = os.path.join(img_folder, img)
+        image = cv2.imread(img_path)
+
+        if image is None:
+            print(f"Warning: Could not read image {img_path}. Skipping")
+            continue
+
+        # Convert the image to PIL format
+        image_pil = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+        # Apply the transformation
+        transformed_image = transform(image_pil)
+
+        # # Convert the transformed image tensor to a NumPy array
+        transformed_image_np = transformed_image.permute(1, 2, 0).numpy()  # Change from (C, H, W) to (H, W, C)
+        transformed_image_np = (transformed_image_np * 255).astype(np.uint8)  # Scale to [0, 255]
+
+        # Save the original and transformed images
+        original_save_path = os.path.join(save_path_folder, img)
+        transformed_save_path = os.path.join(save_path_folder, f"transformed_{img}")
+
+        cv2.imwrite(original_save_path, image)
+        cv2.imwrite(transformed_save_path, transformed_image_np)
+
+        # print(f"Transformed image saved to {transformed_save_path}")
 
 
 def evaluate_saved_model(model_path, transform, base_model):
