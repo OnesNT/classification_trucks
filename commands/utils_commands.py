@@ -1,5 +1,5 @@
 from modular import utils
-from choice_commands import efficientNetWeight_choice, model_choice, transform_type_choice
+from commands.choice_commands import efficientNetWeight_choice, model_choice, transform_type_choice
 
 def utils_commands(args):
     # python main.py --check-how-many-img
@@ -7,11 +7,12 @@ def utils_commands(args):
         utils.check_how_many_pics(args.check_how_many_img)
 
     # python main.py --split_test_train
-    if args.split_test_train:
+    if args.split_dataset:
+
         src = '/home/user/Quang/classification_truck_datasets'
         img_dir = src
-        ratio = 0.8
-        utils.split_train_test_dataset(src, img_dir, ratio)
+        ratio = [0.6, 0.2, 0.2]
+        utils.split_dataset(src, img_dir, ratio)
 
     # python main.py --delete-img-image
     if args.delete_img_image:
@@ -71,7 +72,7 @@ def utils_commands(args):
         utils.delete_models(list_model)
 
     if args.delete_folder:
-        dir = args.delete_file
+        dir = args.delete_folder
         utils.delete_folder(dir)
 
     # python main.py --clean-bin

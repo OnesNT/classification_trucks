@@ -22,6 +22,8 @@ def save_model(model: torch.nn.Module,
                loss_test: list,
                accuracy_train: list,
                loss_train: list,
+               accuracy_val: list,
+               loss_val: list,
                target_dir: str,
                model_name: str,
                transform, model_choice, version_model, lrs):
@@ -55,6 +57,8 @@ def save_model(model: torch.nn.Module,
         'accuracy_test': accuracy_test,
         'accuracy_train': accuracy_train,
         'loss_train': loss_train,
+        'accuracy_val': accuracy_val,
+        'loss_val': loss_val,
         'transform': transform,
         'model_choice': model_choice,
         'version_model': version_model,
@@ -82,8 +86,10 @@ def load_model(model_path, model_choice, base_model, schedule_lr):
     best_ratio = checkpoint['best_ratio']
     loss_train = checkpoint['loss_train']
     loss_test = checkpoint['loss_test']
+    loss_val = checkpoint['loss_val']
     accuracy_test = checkpoint['accuracy_test']
     accuracy_train = checkpoint['accuracy_train']
+    accuracy_val = checkpoint['accuracy_val']
     transform = checkpoint['transform']
     model_choice = checkpoint['model_choice']
     version_model = checkpoint['version_model']
@@ -94,6 +100,7 @@ def load_model(model_path, model_choice, base_model, schedule_lr):
     print(f'model_choice: {model_choice}, version_model: {version_model}, best_ratio: {best_ratio}')
     print(f'loss_train: {loss_train}, accuracy_train: {accuracy_train}')
     print(f'loss_test: {loss_test}, accuracy_test: {accuracy_test}')
+    print(f'loss_val: {loss_val}, accuracy_val: {accuracy_val}')
     print(f'lrs: {lrs}')
     print(f'transform: {str(transform)}')
 
@@ -101,8 +108,10 @@ def load_model(model_path, model_choice, base_model, schedule_lr):
             "best_ratio": best_ratio,
             "loss_train": loss_train,
             "loss_test": loss_test,
+            "loss_val": loss_val,
             "accuracy_train": accuracy_train,
             "accuracy_test": accuracy_test,
+            "accuracy_val": accuracy_val,
             "version_model": version_model,
             "transform": transform,
             "lrs": lrs}
@@ -358,20 +367,24 @@ def delete_img_first_img(img_dir):
             os.remove(img_path)
 
 
-def split_train_test_dataset(src, img_dir, ratio):
+def split_dataset(src, img_dir, ratio):
+    # ratio = [train_proportion, test_proportion, val_proportion] ex: ratio = [0.6, 0.2, 0.2]
 
-    for split in ['train', 'test']:
+    for split in ['train', 'test', 'val']:
         for truck in ['truck_1', 'truck_2']:
             os.makedirs(os.path.join(img_dir, split, truck), exist_ok=True)
 
     test_dir = os.path.join(img_dir, 'test')
     train_dir = os.path.join(img_dir, 'train')
+    val_dir = os.path.join(img_dir, 'val')
 
     src_subdirs = ['truck_1', 'truck_2']
 
     for subdir in src_subdirs:
         path_src_subdir = os.path.join(src, subdir)
-        num_train = int(ratio * len(os.listdir(path_src_subdir)))
+
+        num_train = int(ratio[0] * len(os.listdir(path_src_subdir)))
+        num_test = int(ratio[1] * len(os.listdir(path_src_subdir)))
 
         # Move file for each truck files
 
@@ -381,12 +394,19 @@ def split_train_test_dataset(src, img_dir, ratio):
             # print(f'Move from {os.path.join(path_src_subdir, img)} to {os.path.join(train_dir, subdir, img)}')
         print(f'Move successfully from {path_src_subdir} to {os.path.join(train_dir, subdir)}')
 
-        for img in os.listdir(path_src_subdir)[num_train:]:
+        for img in os.listdir(path_src_subdir)[num_train:num_train+num_test]:
 
             shutil.copy2(os.path.join(path_src_subdir, img),
                          os.path.join(test_dir, subdir, img))
             # print(f'Move from {os.path.join(path_src_subdir, img)} to {os.path.join(test_dir, subdir, img)}')
         print(f'Move successfully from {path_src_subdir} to {os.path.join(test_dir, subdir)}')
+
+        for img in os.listdir(path_src_subdir)[num_train+num_test:]:
+
+            shutil.copy2(os.path.join(path_src_subdir, img),
+                         os.path.join(val_dir, subdir, img))
+            # print(f'Move from {os.path.join(path_src_subdir, img)} to {os.path.join(test_dir, subdir, img)}')
+        print(f'Move successfully from {path_src_subdir} to {os.path.join(val_dir, subdir)}')
 
 
 def delete_file(file):
@@ -414,6 +434,13 @@ def delete_models(list_model):
             continue
 
 def delete_folder(folder):
+    # Check if folder is None
+    if folder is None:
+        print("Error: folder is None")
+        return
+
+    print(f"Attempting to delete folder: {folder}")
+
     if os.path.isdir(folder):
         bin = os.path.join('/home/user/Quang/datasets', 'bin')
         os.makedirs(bin, exist_ok=True)
@@ -424,9 +451,30 @@ def delete_folder(folder):
 
 
 def clean_bin():
-    bin = os.path.join('/home/user/Quang/datasets', 'bin')
-    for file in os.listdir(bin):
-        os.remove(os.path.join(bin, file))
+    bin_path = os.path.join('/home/user/Quang/datasets', 'bin')
+
+    # Check if the bin directory exists
+    if not os.path.exists(bin_path):
+        print('bin directory does not exist')
+        return
+
+    # List all items in the bin directory
+    items = os.listdir(bin_path)
+
+    if not items:  # Check if the list is empty
+        print('bin is empty')
+        return
+
+    for item in items:
+        item_path = os.path.join(bin_path, item)
+
+        if os.path.isfile(item_path):
+            os.remove(item_path)  # Remove file
+            print(f'Removed file: {item_path}')
+        elif os.path.isdir(item_path):
+            shutil.rmtree(item_path)  # Remove directory and its contents
+            print(f'Removed directory: {item_path}')
+
     print("Clean bin successfully")
 
 

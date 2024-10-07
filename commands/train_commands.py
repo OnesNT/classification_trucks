@@ -1,5 +1,5 @@
 from modular import train
-from choice_commands import efficientNetWeight_choice, model_choice, transform_type_choice, schedule_lr_choice
+from commands.choice_commands import efficientNetWeight_choice, model_choice, transform_type_choice, schedule_lr_choice
 
 
 def train_commands(args):

@@ -1,5 +1,5 @@
 # Setup hyperparameters
-NUM_EPOCHS = 50
+NUM_EPOCHS = 1
 BATCH_SIZE = 48
 HIDDEN_UNITS = 10
 LEARNING_RATE = 0.0003

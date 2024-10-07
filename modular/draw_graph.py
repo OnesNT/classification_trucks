@@ -23,9 +23,9 @@ def load_and_draw(model_path, model_base, model_choice, schedule_lr):
     model.load_state_dict(checkpoint['model_state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
-    loss_test = checkpoint['loss_test']
+    loss_val = checkpoint['loss_val']
     loss_train = checkpoint['loss_train']
-    accuracy_test = checkpoint['accuracy_test']
+    accuracy_val = checkpoint['accuracy_val']
     accuracy_train = checkpoint['accuracy_train']
     lrs = checkpoint['lrs']
 
@@ -38,15 +38,15 @@ def load_and_draw(model_path, model_base, model_choice, schedule_lr):
     # simulating a training run
     for epoch in range(0, len(loss_train)):
         print(f"epoch={epoch+1}, "
-              f"accuracy_test={accuracy_test[epoch]}, "
+              f"accuracy_test={accuracy_val[epoch]}, "
               f"accuracy_train={accuracy_train[epoch]}, "
-              f"loss_test={loss_test[epoch]}, "
+              f"loss_test={loss_val[epoch]}, "
               f"loss_train={loss_train[epoch]}, "
               f"lr={lrs[epoch]}")
 
-        wandb.log({"accuracy_test": accuracy_test[epoch],
+        wandb.log({"accuracy_test": accuracy_val[epoch],
                    "accuracy_train": accuracy_train[epoch],
-                   "loss_test": loss_test[epoch],
+                   "loss_test": loss_val[epoch],
                    "loss_train": loss_train[epoch],
                    "lr": lrs[epoch]})
 

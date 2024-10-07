@@ -1,5 +1,5 @@
 from modular import draw_graph
-from choice_commands import model_choice
+from commands.choice_commands import model_choice
 
 def draw_commands(args):
     # python main.py --draw-graph DIR-MODEL --version-model 1

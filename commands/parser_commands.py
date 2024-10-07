@@ -23,9 +23,9 @@ def parsers():
                         metavar='DIR',
                         type=str,
                         help='get content from saved model')
-    parser.add_argument('--split-test-train',
+    parser.add_argument('--split-dataset',
                         action='store_true',
-                        help='split file to train and test')
+                        help='split file to train, test, validation')
     parser.add_argument('--clean-memory',
                         action='store_true',
                         help='clean gpu')
@@ -108,7 +108,7 @@ def parsers():
     parser.add_argument('--input-dir')
 
     # Add argument for transform choice
-    parser.add_argument('--transform-choice', type=int, choices=[1, 2, 3],
+    parser.add_argument('--transform-choice', type=int, choices=[1, 2, 3, 4, 5, 6],
                         help='Choose the transform to apply: 1 for transform1, 2 for transform2')
 
     # Add argument for efficient net version choice

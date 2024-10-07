@@ -20,61 +20,15 @@ import shutil
 import torch.optim as optim
 import torch.optim.lr_scheduler as lr_scheduler
 from PIL import Image
-<<<<<<< HEAD
-
-
-# Setup hyperparameters
-NUM_EPOCHS = 50
-BATCH_SIZE = 48
-HIDDEN_UNITS = 10
-LEARNING_RATE = 0.0003
-
-simple_transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        ])
-
-transform1 = transforms.Compose([
-        # Resize images to 224x224
-        transforms.Resize((224, 224)),
-        transforms.RandomHorizontalFlip(p=0.5),  # Random horizontal flip
-        transforms.RandomAffine(degrees=(-15, 15), translate=(0.1, 0.3), scale=(0.5, 1)),
-        transforms.RandomRotation(degrees=(-20, 20)),
-        # transforms.Grayscale(3),
-        transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5.)),
-        transforms.RandomInvert(p=0.25),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize images
-    ])
-
-# Define the second argumentation technique then compare to the first one
-transform2 = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.RandAugment(),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize images
-])
-
-transform3 = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-])
-
-# Add RandAugment with N, M(hyperparameter)
-transform3.transforms.insert(0, RandAugment(4, 9))
-=======
 from config import base_model, setup_hyperparameters, transforms
->>>>>>> test_dev
+
 
 # Check device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Freezing layers with ratios
-freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
-
+# freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
+freeze_ratios = [0]
 
 # create model, optimizer, loss function for model
 def create_model(model_choice, base_model, schedule_lr):
@@ -312,7 +266,7 @@ def data_set_up(transform):
     root_dir = '/home/user/Quang/classification_truck_datasets'
     train_dir = os.path.join(root_dir, 'train')
     test_dir = os.path.join(root_dir, 'test')
-    validation_dir = os.path.join(root_dir, 'validation')
+    validation_dir = os.path.join(root_dir, 'val')
 
     train_dataset = TruckDataset(root_dir=train_dir, transform=transform)
     test_dataset = TruckDataset(root_dir=test_dir, transform=transforms.simple_transform)
@@ -383,6 +337,8 @@ def train_model(transform, model_choice, base_model, version_model, schedule_lr)
                      loss_test=results_best['test_loss'],
                      accuracy_train=results_best['train_acc'],
                      loss_train=results_best['train_loss'],
+                     accuracy_val=results_best['val_acc'],
+                     loss_val=results_best['val_loss'],
                      target_dir="models",
                      model_name=f"model{available_num+1}.pth",
                      transform=transform,
