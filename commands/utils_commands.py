@@ -1,6 +1,7 @@
 from modular import utils
 from commands.choice_commands import efficientNetWeight_choice, model_choice, transform_type_choice
 
+
 def utils_commands(args):
     # python main.py --check-how-many-img
     if args.check_how_many_img:
@@ -8,10 +9,10 @@ def utils_commands(args):
 
     # python main.py --split_test_train
     if args.split_dataset:
-
         src = '/home/user/Quang/classification_truck_datasets'
         img_dir = src
         ratio = [0.6, 0.2, 0.2]
+
         utils.split_dataset(src, img_dir, ratio)
 
     # python main.py --delete-img-image
@@ -29,7 +30,17 @@ def utils_commands(args):
     # python main.py --show-image '/home/user/NgoQuang/datasets/threshold_below_0.6/truck_1/...'
     if args.show_image:
         print(f"Showing a random image from the directory: {args.show_image}")
-        print(utils.show_random_image(args.show_image))
+        utils.show_random_img(args.show_image)
+
+    if args.show_transformed_img_and_img:
+        img_folder = args.show_transformed_img_and_img
+        print(f"Showing a random image with its transfomed image: {img_folder}")
+        utils.show_transformed_img_and_img(img_folder)
+
+    if args.show_single_transformed_img:
+        img = args.show_single_transformed_img
+        transform = transform_type_choice(args)
+        utils.show_single_transformed_img(img, transform)
 
     #  python main.py --delete-image '/home/user/NgoQuang/datasets/threshold_below_0.6/truck_1/...'
     if args.delete_image:
@@ -57,6 +68,12 @@ def utils_commands(args):
         schedule_lr = args.schedule_lr
         utils.load_model(model_path, model, base_model, schedule_lr)
 
+    if args.check_transformed_image:
+        img_folder = args.check_transformed_image
+        transform = transform_type_choice(args)
+
+        utils.check_transformed_image(img_folder, transform)
+
     # python main.py --delete-file '/home/user/NgoQuang/truck_classification/modular/models/model7.pth'
     if args.delete_file:
         dir = args.delete_file
@@ -71,6 +88,7 @@ def utils_commands(args):
 
         utils.delete_models(list_model)
 
+    # python main.py --delete-folder DIR
     if args.delete_folder:
         dir = args.delete_folder
         utils.delete_folder(dir)

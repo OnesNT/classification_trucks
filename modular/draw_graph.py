@@ -44,9 +44,9 @@ def load_and_draw(model_path, model_base, model_choice, schedule_lr):
               f"loss_train={loss_train[epoch]}, "
               f"lr={lrs[epoch]}")
 
-        wandb.log({"accuracy_test": accuracy_val[epoch],
+        wandb.log({"accuracy_val": accuracy_val[epoch],
                    "accuracy_train": accuracy_train[epoch],
-                   "loss_test": loss_val[epoch],
+                   "loss_val": loss_val[epoch],
                    "loss_train": loss_train[epoch],
                    "lr": lrs[epoch]})
 

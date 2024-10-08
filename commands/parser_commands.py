@@ -7,6 +7,20 @@ def parsers():
     # Add a flag for showing a random image, with a required directory argument
 
     # Argument for Utils command
+    parser.add_argument('--show-single-transformed-img',
+                        metavar='DIR',
+                        type=str,
+                        help='show image via transform')
+
+    parser.add_argument('--check-transformed-image',
+                        metavar='DIR',
+                        type=str,
+                        help='transformed img and save into dataset/transformed_image')
+
+    parser.add_argument('--show-transformed-img-and-img',
+                        metavar='DIR',
+                        type=str,
+                        help='Showing a random image with its transfomed image')
     parser.add_argument('--delete-models',
                         metavar='model_number',
                         type=str,

@@ -11,6 +11,7 @@ import torch
 from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
 from modular.train import data_set_up, classifier, create_model
 from PIL import Image
+import matplotlib.pyplot as plt
 # import gc
 # from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 
@@ -184,24 +185,75 @@ def check_transformed_image(img_folder, transform):
             print(f"Warning: Could not read image {img_path}. Skipping")
             continue
 
-        # Convert the image to PIL format
+        # # Convert the image to PIL format
         image_pil = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-
-        # Apply the transformation
+        #
+        # # Apply the transformation
         transformed_image = transform(image_pil)
-
-        # # Convert the transformed image tensor to a NumPy array
+        plt.imshow(transformed_image.permute(1, 2, 0))
+        #
+        # # # Convert the transformed image tensor to a NumPy array
         transformed_image_np = transformed_image.permute(1, 2, 0).numpy()  # Change from (C, H, W) to (H, W, C)
         transformed_image_np = (transformed_image_np * 255).astype(np.uint8)  # Scale to [0, 255]
 
         # Save the original and transformed images
-        original_save_path = os.path.join(save_path_folder, img)
         transformed_save_path = os.path.join(save_path_folder, f"transformed_{img}")
-
-        cv2.imwrite(original_save_path, image)
         cv2.imwrite(transformed_save_path, transformed_image_np)
 
-        # print(f"Transformed image saved to {transformed_save_path}")
+    return 0
+
+
+def convert_img_to_pil_img(img):
+    # You may need to convert the color.
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    image_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+
+    return image_pil
+
+
+def show_single_transformed_img(img_path, transform):
+    img = convert_img_to_pil_img(cv2.imread(img_path))
+    img_trans = transform(img)
+
+    plt.imshow(img_trans.permute(1, 2, 0))
+
+    # # # Convert the transformed image tensor to a NumPy array
+    transformed_image_np = img_trans.permute(1, 2, 0).numpy()  # Change from (C, H, W) to (H, W, C)
+    transformed_image_np = (transformed_image_np * 255).astype(np.uint8)
+
+
+def show_image(img_path):
+    img = Image.open(img_path)
+    img.show()
+
+    return 0
+
+
+def show_transformed_img(img_path):
+    save_transformed = "/home/user/Quang/datasets/transformed_image"
+    img_name = img_path.split('/')[-1]
+    type_truck = img_path.split('/')[-2]
+    transformed_img_name = 'transformed_' + img_name
+    show_image(os.path.join(save_transformed, type_truck, transformed_img_name))
+
+    return 0
+
+
+def show_random_img(img_folder):
+    list_images = os.listdir(img_folder)
+    choice = random.randint(0, len(list_images) - 1)
+    img_name_random = os.listdir(img_folder)[choice]
+    show_image(os.path.join(img_folder, img_name_random))
+
+    return img_name_random
+
+
+def show_transformed_img_and_img(img_folder):
+    img_name_random = show_random_img(img_folder)
+    print(img_name_random)
+    show_transformed_img(os.path.join(img_folder, img_name_random))
+
+    return 0
 
 
 def evaluate_saved_model(model_path, transform, base_model):
@@ -211,8 +263,7 @@ def evaluate_saved_model(model_path, transform, base_model):
     model = classifier(model_path, base_model)
     model.to(device)
 
-    num_classes = 2  # specify num_classes over here
-
+    num_classes = 2
 
     # model.eval()  # Set the model to evaluation mode
     all_preds = []
@@ -243,20 +294,6 @@ def evaluate_saved_model(model_path, transform, base_model):
     print(f"accuracy: {accuracy}, precision: {precision} , {recall}, f1: {f1} ")
     print(class_report)
     return accuracy, precision, recall, f1, class_report
-
-
-def show_image(img):
-    display(img)
-
-
-def show_random_image(dir):
-    subdirs = ['truck_1', 'truck_2']
-    random_subdir = random.choice(subdirs)
-
-    files = os.listdir(os.path.join(dir, random_subdir))
-    random_index = random.randint(0, len(files) - 1)
-
-    return os.path.join(dir, random_subdir, files[random_index])
 
 
 def not_truck_detect(dir):

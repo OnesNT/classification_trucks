@@ -27,8 +27,8 @@ from config import base_model, setup_hyperparameters, transforms
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Freezing layers with ratios
-# freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
-freeze_ratios = [0]
+freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
+# freeze_ratios = [0]
 
 # create model, optimizer, loss function for model
 def create_model(model_choice, base_model, schedule_lr):

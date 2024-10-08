@@ -5,8 +5,8 @@ import torch
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Define EfficientNet with different base model
-weight_v2_EfficientNet_S = torchvision.models.EfficientNet_V2_S_Weights.DEFAULT
-base_v2_modelEfficientNet_S = torchvision.models.efficientnet_v2_s(weights=weight_v2_EfficientNet_S).to(device)
+weight_v2_EfficientNet_M = torchvision.models.EfficientNet_V2_M_Weights.DEFAULT
+base_v2_modelEfficientNet_M = torchvision.models.efficientnet_v2_m(weights=weight_v2_EfficientNet_M).to(device)
 
 weights2 = torchvision.models.EfficientNet_B2_Weights.DEFAULT
 base_model2 = torchvision.models.efficientnet_b2(weights=weights2).to(device)
