@@ -27,8 +27,8 @@ from config import base_model, setup_hyperparameters, transforms
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Freezing layers with ratios
-freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
-# freeze_ratios = [0]
+# freeze_ratios = [0, 0.1, 0.3, 0.5, 0.7, 0.9]
+freeze_ratios = [0]
 
 # create model, optimizer, loss function for model
 def create_model(model_choice, base_model, schedule_lr):
@@ -42,7 +42,7 @@ def create_model(model_choice, base_model, schedule_lr):
     if model_choice == 'e':
         model = model_builder.EfficientNetCustom(base_model, output_shape).to(device)
         print("Create model with EfficientNet")
-    elif model_choice == 'r':
+    elif model_choice in ['r34', 'r50']:
         model = model_builder.ResNetCustom(base_model, output_shape).to(device)
         print("Create model with ResNet")
     elif model_choice == 'c':

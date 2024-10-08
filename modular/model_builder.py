@@ -9,6 +9,7 @@ class EfficientNetV2Custom(nn.Module):
         super(EfficientNetV2Custom, self).__init__()
         self.base_model = base_model
 
+        # print(self.base_model)
         num_features = self.base_model.classifier[1].in_features
 
         print(num_features)

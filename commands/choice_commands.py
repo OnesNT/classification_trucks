@@ -6,21 +6,25 @@ def model_choice(args):
     if args.model_choice is None:
         print("Error: model choice is require")
 
-    if args.model_choice == 'r':
+    if args.model_choice == 'r34':
         base_model_choice = base_model.base_modelResNet34
         version_model = 34
         print("Using base_modelResNet34")
+    elif args.model_choice == 'r50':
+        base_model_choice = base_model.base_modelResNet50
+        version_model = 50
+        print("Using base_modelResNet50")
     elif args.model_choice == 'c':
-        base_model_choice = base_model.base_modelWeightConvNeXt
-        version_model = 'base'
+        base_model_choice = base_model.tiny_modelWeightConvNeXt
+        version_model = 'tiny'
         print("Using base_modelWeightConvNeXt")
     elif args.model_choice == 'e':
         base_model_choice, version_model = efficientNetWeight_choice(args)
     elif args.model_choice == 'e_v2':
         base_model_choice = base_model.base_v2_modelEfficientNet_S
-        version_model = 'S'
+        version_model = 's'
     else:
-        print("Invalid transform choice")
+        print("Invalid model choice")
         return
 
     return args.model_choice, base_model_choice, version_model
