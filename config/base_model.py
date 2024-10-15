@@ -31,3 +31,16 @@ base_modelResNet101 = torchvision.models.resnet101(weights=weightResNet101).to(d
 
 weight_tiny_ConvNeXt = torchvision.models.ConvNeXt_Tiny_Weights.DEFAULT
 tiny_modelWeightConvNeXt = torchvision.models.convnext_tiny(weights=weight_tiny_ConvNeXt).to(device)
+
+weight_alexNet = torchvision.models.AlexNet_Weights.DEFAULT
+base_alexNet = torchvision.models.alexnet(weights=weight_alexNet).to(device)
+
+weight_densenet121 = torchvision.models.DenseNet121_Weights.DEFAULT
+base_densenet121 = torchvision.models.densenet121(weights=weight_densenet121).to(device)
+
+weight_densenet161 = torchvision.models.DenseNet161_Weights.DEFAULT
+base_densenet161 = torchvision.models.densenet161(weights=weight_densenet161).to(device)
+
+weight_googlenet = torchvision.models.GoogLeNet_Weights.DEFAULT
+base_googlenet = torchvision.models.googlenet(weights=weight_googlenet).to(device)
+

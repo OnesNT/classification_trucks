@@ -55,18 +55,20 @@ def utils_commands(args):
 
     # python main.py --evaluate-model '/home/user/NgoQuang/truck_classification/modular/models/model7.pth' --version-model 1 --transform-choice 1
     if args.evaluate_model:
-        transform = transform_type_choice(args)
-        base_model = efficientNetWeight_choice(args)
+        model, base_model, version_model = model_choice(args)
+        schedule_lr = args.schedule_lr
         print(f"Evaluate model from {args.evaluate_model}")
-        utils.evaluate_saved_model(args.evaluate_model, transform, base_model)
+        utils.evaluate_saved_model(args.evaluate_model, model, base_model, schedule_lr)
 
     # python main.py --get-content '/home/user/NgoQuang/truck_classification/modular/models/model7.pth' --version-model 1 --transform-choice 1
     if args.get_content:
+
         model, base_model, version_model = model_choice(args)
+        choice, optimizer = optimizer_choice(args, model)
         print(f"get content model from {args.get_content}")
         model_path = args.get_content
         schedule_lr = args.schedule_lr
-        utils.load_model(model_path, model, base_model, schedule_lr)
+        utils.load_model(model_path, model, base_model, schedule_lr, optimizer_choice, optimizer)
 
     if args.check_transformed_image:
         img_folder = args.check_transformed_image

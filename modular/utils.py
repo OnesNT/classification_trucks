@@ -1,10 +1,7 @@
 import os
 import cv2
-import torch
 from pathlib import Path
 import numpy as np
-from ultralytics import YOLO
-from IPython.display import display
 import shutil
 import random
 import torch
@@ -12,8 +9,6 @@ from sklearn.metrics import classification_report, accuracy_score, precision_sco
 from modular.train import data_set_up, classifier, create_model
 from PIL import Image
 import matplotlib.pyplot as plt
-# import gc
-# from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 
 
 def save_model(model: torch.nn.Module,
@@ -28,18 +23,7 @@ def save_model(model: torch.nn.Module,
                target_dir: str,
                model_name: str,
                transform, model_choice, version_model, lrs):
-    """Saves a PyTorch model along with its state, optimizer state, epoch, and loss.
 
-    Args:
-        model: A target PyTorch model to save.
-        optimizer: The optimizer for the model.
-        best_ratio: The ratio that model have the highest efficient.
-        accuracy: The list accuracy in best model.
-        loss: The list loss in best model value.
-        target_dir: A directory for saving the model to.
-        model_name: A filename for the saved model. Should include
-                    either ".pth" or ".pt" as the file extension.
-    """
     # Create target directory
     target_dir_path = Path(target_dir)
     target_dir_path.mkdir(parents=True, exist_ok=True)
@@ -69,18 +53,9 @@ def save_model(model: torch.nn.Module,
     }, model_save_path)
 
 
-def load_model(model_path, model_choice, base_model, schedule_lr):
-    """Loads a PyTorch model along with its state, optimizer state, epoch, and loss.
+def load_model(model_path, model_choice, base_model, schedule_lr, optimizer_choice, optimizer):
 
-    Args:
-        model_path: The model's path to load the state dictionary into.
-
-    Returns:
-        epoch: The epoch at which the model was saved.
-        loss: The loss value at the time of saving.
-    """
-
-    model, optimizer, loss_fn, scheduler = create_model(model_choice, base_model, schedule_lr)
+    model, optimizer, loss_fn, scheduler = create_model(model_choice, optimizer_choice, optimizer, base_model, schedule_lr)
     checkpoint = torch.load(model_path)
     model.load_state_dict(checkpoint['model_state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -121,16 +96,7 @@ def load_model(model_path, model_choice, base_model, schedule_lr):
 def evaluate_model(model: torch.nn.Module,
                    dataloader: torch.utils.data.DataLoader,
                    device: str = 'cuda' if torch.cuda.is_available() else 'cpu'):
-    """Evaluates the model on the provided dataloader and calculates accuracy.
 
-    Args:
-        model: The model to evaluate.
-        dataloader: The dataloader with test data.
-        device: The device to use for computation ('cuda' or 'cpu').
-
-    Returns:
-        accuracy: The accuracy of the model on the test dataset.
-    """
     model.to(device)
     model.eval()
 
@@ -161,6 +127,18 @@ def evaluate_model(model: torch.nn.Module,
     accuracy = num_correct / total_samples
 
     return accuracy
+
+
+def denormalize_image(image_tensor):
+    # Define mean and std for denormalization
+    mean = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)  # Reshape to (1, C, 1, 1)
+    std = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)    # Reshape to (1, C, 1, 1)
+
+    # Denormalize
+    denormalized_image = image_tensor * std + mean
+    denormalized_image = torch.clamp(denormalized_image, 0, 1)  # Clamp to [0, 1] range
+
+    return denormalized_image
 
 
 def check_transformed_image(img_folder, transform):
@@ -211,17 +189,6 @@ def convert_img_to_pil_img(img):
     return image_pil
 
 
-def show_single_transformed_img(img_path, transform):
-    img = convert_img_to_pil_img(cv2.imread(img_path))
-    img_trans = transform(img)
-
-    plt.imshow(img_trans.permute(1, 2, 0))
-
-    # # # Convert the transformed image tensor to a NumPy array
-    transformed_image_np = img_trans.permute(1, 2, 0).numpy()  # Change from (C, H, W) to (H, W, C)
-    transformed_image_np = (transformed_image_np * 255).astype(np.uint8)
-
-
 def show_image(img_path):
     img = Image.open(img_path)
     img.show()
@@ -256,20 +223,20 @@ def show_transformed_img_and_img(img_folder):
     return 0
 
 
-def evaluate_saved_model(model_path, transform, base_model):
+def evaluate_saved_model(model_path, model_choice, base_model, schedule_lr):
     device: str = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     # Check device
-    model = classifier(model_path, base_model)
+    model = classifier(model_path, model_choice, base_model, schedule_lr)
     model.to(device)
 
     num_classes = 2
 
-    # model.eval()  # Set the model to evaluation mode
+    model.eval()  # Set the model to evaluation mode
     all_preds = []
     all_labels = []
 
-    train_dataloader, test_dataloader = data_set_up(transform)
+    train_dataloader, test_dataloader, validation_dataloader = data_set_up()
 
     with torch.no_grad():  # Deactivate autograd for evaluation
         for data, labels in test_dataloader:

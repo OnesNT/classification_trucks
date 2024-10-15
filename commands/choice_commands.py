@@ -1,5 +1,6 @@
 # from modular import train
-from config import transforms, base_model
+from config import transforms, base_model, setup_hyperparameters
+import torch.optim as optim
 
 def model_choice(args):
 
@@ -79,6 +80,7 @@ def transform_type_choice(args):
         print("Invalid transform choice")
         return
     return transform
+
 
 def schedule_lr_choice(args):
     if args.schedule_lr is None:

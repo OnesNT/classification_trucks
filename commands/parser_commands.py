@@ -102,7 +102,10 @@ def parsers():
                         metavar='DIR',
                         type=str,
                         help='choose model')
-
+    parser.add_argument('--optimizer-choice',
+                        metavar='DIR',
+                        type=str,
+                        help='choose optimizer')
     parser.add_argument('--detect-and-train',
                         action='store_true',
                         help='Directory containing input images')
@@ -121,6 +124,7 @@ def parsers():
     parser.add_argument('--output-dir', metavar='DIR', help='Directory to save output images')
     parser.add_argument('--input-dir')
 
+
     # Add argument for transform choice
     parser.add_argument('--transform-choice', type=int, choices=[1, 2, 3, 4, 5, 6],
                         help='Choose the transform to apply: 1 for transform1, 2 for transform2')
@@ -128,5 +132,6 @@ def parsers():
     # Add argument for efficient net version choice
     parser.add_argument('--version-model', type=int, choices=[0, 1, 2, 3],
                         help='Choose the transform to apply: 0 for efficientNetB0, 1 for efficientNetB1, 2 for efficientNetB2')
+
 
     return parser

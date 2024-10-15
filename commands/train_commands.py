@@ -32,6 +32,7 @@ def train_commands(args):
         # Check if transform_choice is provided when training
         transform = transform_type_choice(args)
         choice_model, base_model, version_model = model_choice(args)
+        choice = args.optimizer_choice
         schedule_lr = schedule_lr_choice(args)
-        train.train_model(transform, choice_model, base_model, version_model, schedule_lr)
+        train.train_model(transform, choice_model, base_model, version_model, schedule_lr, choice)
 
